@@ -1069,3 +1069,709 @@ body {
     }
 
 }
+
+
+/* ===== FRIENDSHIP THEME: SEA BLUE + SUNSHINE YELLOW ===== */
+:root {
+    --navy: #17465b;
+    --blue: #287d99;
+    --teal: #3b9b9b;
+    --gold: #e7bd58;
+    --pale-yellow: #fff6d9;
+    --ink: #294b5b;
+}
+body {
+    color: var(--ink);
+    background: linear-gradient(135deg, #e7f5f5, #fff8df, #eaf4f8, #f7f3df);
+    background-size: 400% 400%;
+}
+.home h1, .gift-box h1 {
+    color: #205d78;
+    text-shadow: 0 8px 25px #5a9ab044;
+}
+@keyframes headingGlow {
+    50% { text-shadow: 0 0 15px #a8dfe3, 0 0 35px #f2d47f; }
+}
+.top-text, .small-text { color: #557d8a; }
+.main-btn {
+    background: linear-gradient(120deg, #287d99, #43a39a);
+    box-shadow: 0 10px 25px #347a9d33;
+}
+.main-btn:hover { box-shadow: 0 15px 30px #347a9d55; }
+.arrow { color: #3b9294; }
+.note-box, .video-box, .cake-box, .gift-box {
+    border-color: #c9e0df;
+    box-shadow: 0 15px 40px #315d7520;
+}
+.note-box h2, .video-box h2, .cake-box h2 { color: #356d86; }
+.small-btn {
+    background: #fff7dc;
+    border: 1px solid #ead79a;
+    color: #557487;
+}
+.small-btn:hover { background: #ffefbd; }
+.compliment { color: #438f88; }
+.video-box video { background: #e4eff2; }
+.stick {
+    background: repeating-linear-gradient(45deg, #f5d77e, #f5d77e 5px, #6da9b4 5px, #6da9b4 10px);
+}
+.instruction, .status { color: #55798b; }
+.birthday-title { color: #2d7890; }
+@keyframes giftGlow {
+    50% { box-shadow: 0 0 25px #f0d37c88; }
+}
+.gift-page { background: transparent; }
+
+/* Sticker groups are decorative layers, not rows or headers. */
+.sticker-scatter {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    margin: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+.sticker {
+    display: block;
+    position: absolute;
+    object-fit: contain;
+    filter: drop-shadow(0 9px 12px #23485b25);
+    animation: stickerPop .65s both ease-out;
+    animation-delay: var(--sticker-delay, 0ms);
+}
+@keyframes stickerPop {
+    from { opacity: 0; transform: translateY(15px) scale(.88) rotate(-4deg); }
+    to { opacity: 1; transform: translateY(0) scale(1) rotate(0); }
+}
+
+/* Homepage stickers are spread around the open space, away from the heading/button. */
+.home { position: relative; }
+.home-stickers { height: 100%; }
+.home-stickers .sticker { width: clamp(85px, 12vw, 145px); max-height: 150px; }
+.home-cat-one { left: 3%; top: 23%; transform: rotate(-8deg); }
+.home-cat-two { right: 5%; top: 34%; transform: rotate(7deg); }
+.home-cat-three { left: 14%; bottom: 10%; transform: rotate(5deg); }
+
+/* Birthday stickers sit around the note/video/cake column, never in a top row. */
+.birthday { position: relative; }
+.sticker-gallery { height: 1120px; }
+.sticker-gallery .sticker { width: clamp(88px, 11vw, 135px); max-height: 145px; }
+.birthday-cat-one { left: 2%; top: 150px; transform: rotate(-9deg); }
+.birthday-cat-two { right: 2%; top: 380px; transform: rotate(7deg); }
+.birthday-cat-three { left: 3%; top: 690px; transform: rotate(6deg); }
+.birthday-cat-four { right: 3%; top: 900px; transform: rotate(-6deg); }
+
+.final-party-cat {
+    position: relative;
+    width: min(190px, 55vw);
+    max-height: 220px;
+    margin: 8px auto 18px;
+}
+.gift-box { overflow: hidden; }
+.gift-box h1 { line-height: 1.45; }
+
+/* Keep stickers clear of the content on narrow screens. */
+@media (max-width: 700px) {
+    .home-stickers .sticker { width: 23vw; max-height: 105px; }
+    .home-cat-one { left: 1%; top: 18%; }
+    .home-cat-two { right: 1%; top: 39%; }
+    .home-cat-three { left: 4%; bottom: 8%; }
+    .sticker-gallery { height: 1080px; }
+    .sticker-gallery .sticker { width: 19vw; max-height: 95px; }
+    .birthday-cat-one { left: 0; top: 135px; }
+    .birthday-cat-two { right: 0; top: 390px; }
+    .birthday-cat-three { left: 0; top: 710px; }
+    .birthday-cat-four { right: 0; top: 930px; }
+}
+@media (max-width: 430px) {
+    .home-stickers .sticker { width: 20vw; max-height: 82px; }
+    .sticker-gallery .sticker { width: 17vw; max-height: 76px; }
+}
+
+
+/* =========================================================
+   FINAL OVERRIDE: SUNNY YELLOW + OCEAN / SEA BLUE
+   ========================================================= */
+body {
+    color: #21495b !important;
+    background: linear-gradient(135deg,
+        #fff0ad 0%,
+        #e3f4ed 36%,
+        #bfe5e8 68%,
+        #fff4c9 100%) !important;
+    background-size: 350% 350% !important;
+}
+.home h1, .gift-box h1 {
+    color: #155675 !important;
+    text-shadow: 0 7px 24px #e3b84c66 !important;
+}
+.top-text, .small-text { color: #3d7181 !important; }
+.main-btn {
+    background: linear-gradient(120deg, #126487, #238f91) !important;
+    color: #fff !important;
+    box-shadow: 0 10px 26px #176b8050 !important;
+}
+.main-btn:hover { box-shadow: 0 14px 32px #176b8070 !important; }
+.arrow { color: #16818b !important; }
+.note-box, .video-box, .cake-box, .gift-box {
+    background: #fffdf3f2 !important;
+    border: 1px solid #e6cf83 !important;
+    box-shadow: 0 15px 40px #2a687326 !important;
+}
+.note-box h2, .video-box h2, .cake-box h2 { color: #17657c !important; }
+.small-btn {
+    background: #fff2bd !important;
+    border: 1px solid #e2c66d !important;
+    color: #24586a !important;
+}
+.small-btn:hover { background: #ffe99a !important; }
+.compliment, .status { color: #187d78 !important; }
+.instruction { color: #456d79 !important; }
+.birthday-title { color: #126987 !important; }
+.video-box video { background: #d9eeee !important; }
+.stick {
+    background: repeating-linear-gradient(45deg,
+        #f7d66f, #f7d66f 5px, #3b9da3 5px, #3b9da3 10px) !important;
+}
+
+/* Scatter stickers inward from the edges, in separate pockets of whitespace. */
+.home { position: relative; isolation: isolate; }
+.home-stickers {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+}
+.home-stickers .sticker {
+    position: absolute !important;
+    display: block !important;
+    width: clamp(82px, 9vw, 122px) !important;
+    max-height: 132px !important;
+    object-fit: contain !important;
+}
+.home-cat-one { left: 13% !important; top: 30% !important; transform: rotate(-9deg); }
+.home-cat-two { right: 13% !important; top: 43% !important; transform: rotate(8deg); }
+.home-cat-three { left: 21% !important; bottom: 7% !important; transform: rotate(5deg); }
+
+.birthday { position: relative; isolation: isolate; }
+.birthday-stickers {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+}
+.birthday-stickers .sticker {
+    position: absolute !important;
+    display: block !important;
+    width: clamp(72px, 8vw, 108px) !important;
+    max-height: 118px !important;
+    object-fit: contain !important;
+}
+.birthday-cat-one { left: 11% !important; top: 7% !important; transform: rotate(-8deg); }
+.birthday-cat-two { right: 11% !important; top: 27% !important; transform: rotate(7deg); }
+.birthday-cat-three { left: 12% !important; top: 59% !important; transform: rotate(6deg); }
+.birthday-cat-four { right: 12% !important; top: 82% !important; transform: rotate(-5deg); }
+
+.final-party-cat {
+    position: relative !important;
+    width: min(190px, 55vw) !important;
+    max-height: 220px !important;
+    margin: 8px auto 18px !important;
+}
+@media (max-width: 700px) {
+    .home-stickers .sticker { width: 68px !important; max-height: 78px !important; }
+    .home-cat-one { left: 7% !important; top: 22% !important; }
+    .home-cat-two { right: 7% !important; top: 42% !important; }
+    .home-cat-three { left: 13% !important; bottom: 5% !important; }
+    .birthday-stickers .sticker { width: 58px !important; max-height: 68px !important; }
+    .birthday-cat-one { left: 5% !important; top: 5% !important; }
+    .birthday-cat-two { right: 5% !important; top: 29% !important; }
+    .birthday-cat-three { left: 5% !important; top: 61% !important; }
+    .birthday-cat-four { right: 5% !important; top: 84% !important; }
+}
+
+
+/* ==========================================================
+   FRESH FRIENDSHIP COLOURS — BRIGHT AQUA, SUNSHINE, MINT + PINK
+   Final visual override only. Original structure/layout remains.
+   ========================================================== */
+:root {
+    --fresh-aqua: #00b9d1;
+    --fresh-sea: #12bfa8;
+    --fresh-yellow: #ffe14d;
+    --fresh-pink: #ff75ae;
+    --fresh-orange: #ffab52;
+    --fresh-blue: #075d80;
+    --fresh-ink: #21465b;
+}
+
+body {
+    color: var(--fresh-ink) !important;
+    background: linear-gradient(120deg,
+        #fff36b 0%,
+        #c1f7e7 27%,
+        #a3eff8 52%,
+        #ffd3e9 77%,
+        #fff079 100%) !important;
+    background-size: 360% 360% !important;
+}
+
+.home h1,
+.gift-box h1 {
+    color: var(--fresh-blue) !important;
+    text-shadow:
+        0 0 12px #fff36b,
+        0 8px 26px #00b9d155 !important;
+}
+
+.top-text,
+.small-text {
+    color: #14788d !important;
+}
+
+.main-btn {
+    background: #F58EAF !important;
+    color: #FFFFFF !important;
+    border: 2px solid #FFD1DF !important;
+    border-radius: 50px !important;
+    box-shadow: 0 6px 18px #F58EAF55 !important;
+}
+
+.main-btn:hover {
+    background: linear-gradient(115deg,
+        #08aeca 0%,
+        #12b99d 58%,
+        #ff9bc2 100%) !important;
+    box-shadow: 0 14px 32px #00aeca66 !important;
+}
+
+.arrow {
+    color: #00a9a6 !important;
+    text-shadow: 0 4px 15px #ffe14d88 !important;
+}
+
+.note-box,
+.video-box,
+.cake-box,
+.gift-box {
+    background: #fffffff4 !important;
+    border: 2px solid #ffe16a !important;
+    box-shadow:
+        0 14px 38px #00aeca25,
+        0 5px 18px #ff75ae18 !important;
+}
+
+.note-box h2,
+.video-box h2,
+.cake-box h2 {
+    color: #087b91 !important;
+}
+
+.small-btn {
+    background: linear-gradient(110deg, #ff8dbb, #ffbf64) !important;
+    border: 1px solid #ff91b9 !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 16px #ff75ae33 !important;
+}
+
+.small-btn:hover {
+    background: linear-gradient(110deg, #ff75ae, #ffb24f) !important;
+}
+
+.compliment {
+    color: #e94f91 !important;
+}
+
+.instruction {
+    color: #397080 !important;
+}
+
+.status {
+    color: #078d84 !important;
+}
+
+.birthday-title {
+    color: #0087a9 !important;
+    text-shadow: 0 5px 18px #ffe14d66 !important;
+}
+
+.video-box video {
+    background: #c9f3f3 !important;
+    box-shadow: 0 7px 22px #00aeca20 !important;
+}
+
+.stick {
+    background: repeating-linear-gradient(45deg,
+        #ffe14d, #ffe14d 5px,
+        #00b9d1 5px, #00b9d1 10px) !important;
+}
+
+.party-mode {
+    box-shadow:
+        0 0 25px #ffe14d88,
+        0 0 45px #00b9d166,
+        0 0 60px #ff75ae44 !important;
+}
+
+/* New cat stickers: cleaner silhouettes, soft shadow, gently scattered.
+   Their placements stay inside the page margins instead of hugging the walls. */
+.sticker {
+    filter:
+        drop-shadow(0 7px 9px #174d5b28)
+        drop-shadow(0 0 2px #ffffffcc) !important;
+    object-fit: contain !important;
+}
+
+.home {
+    position: relative !important;
+    isolation: isolate !important;
+}
+
+.home-stickers {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+}
+
+.home-stickers .sticker {
+    position: absolute !important;
+    display: block !important;
+    width: clamp(92px, 9.5vw, 132px) !important;
+    max-height: 142px !important;
+}
+
+/* Three separate positions around the open space on the welcome page. */
+.home-cat-one {
+    left: 16% !important;
+    top: 31% !important;
+    rotate: -8deg;
+}
+.home-cat-two {
+    right: 16% !important;
+    top: 42% !important;
+    rotate: 7deg;
+}
+.home-cat-three {
+    left: 23% !important;
+    top: 66% !important;
+    rotate: 5deg;
+}
+
+.birthday {
+    position: relative !important;
+    isolation: isolate !important;
+}
+
+.birthday-stickers {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+}
+
+.birthday-stickers .sticker {
+    position: absolute !important;
+    display: block !important;
+    width: clamp(88px, 8.5vw, 116px) !important;
+    max-height: 126px !important;
+}
+
+/* Four stickers spaced down the page, alternating sides and varied heights. */
+.birthday-cat-one {
+    left: 16% !important;
+    top: 180px !important;
+    rotate: -7deg;
+}
+.birthday-cat-two {
+    right: 16% !important;
+    top: 500px !important;
+    rotate: 6deg;
+}
+.birthday-cat-three {
+    left: 17% !important;
+    top: 850px !important;
+    rotate: 7deg;
+}
+.birthday-cat-four {
+    right: 17% !important;
+    top: 1190px !important;
+    rotate: -6deg;
+}
+
+.birthday .note-box,
+.birthday .video-box,
+.birthday .cake-box {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.final-party-cat {
+    position: relative !important;
+    width: min(190px, 55vw) !important;
+    max-height: 220px !important;
+    margin: 8px auto 18px !important;
+}
+
+@media (max-width: 700px) {
+    .home-stickers .sticker {
+        width: 72px !important;
+        max-height: 84px !important;
+    }
+    .home-cat-one {
+        left: 5% !important;
+        top: 25% !important;
+    }
+    .home-cat-two {
+        right: 5% !important;
+        top: 44% !important;
+    }
+    .home-cat-three {
+        left: 15% !important;
+        top: 69% !important;
+    }
+
+    .birthday-stickers .sticker {
+        width: 58px !important;
+        max-height: 68px !important;
+    }
+    .birthday-cat-one {
+        left: 3% !important;
+        top: 150px !important;
+    }
+    .birthday-cat-two {
+        right: 3% !important;
+        top: 465px !important;
+    }
+    .birthday-cat-three {
+        left: 3% !important;
+        top: 790px !important;
+    }
+    .birthday-cat-four {
+        right: 3% !important;
+        top: 1110px !important;
+    }
+}
+
+@media (max-width: 430px) {
+    .home-stickers .sticker {
+        width: 58px !important;
+        max-height: 68px !important;
+    }
+    .birthday-stickers .sticker {
+        width: 48px !important;
+        max-height: 58px !important;
+    }
+}
+
+/* =========================================================
+   FINAL BRIGHT FRIENDSHIP PALETTE
+   Sunshine yellow + aqua + sky blue + mint + coral pink
+   This section intentionally overrides earlier theme colors.
+   ========================================================= */
+
+:root {
+    --fresh-yellow: #FFE34D;
+    --fresh-aqua: #24DCC8;
+    --fresh-pink: #FF75AD;
+    --fresh-blue: #65CFFF;
+    --fresh-mint: #75E8A8;
+    --fresh-orange: #FFAD55;
+    --fresh-text: #28758B;
+}
+
+/* The page background — soft lavender to pale sky blue, matched to the reference */
+html,
+body {
+    min-height: 100%;
+    background: linear-gradient(
+        135deg,
+        #EEEFFF 0%,
+        #EAF2FF 48%,
+        #E3F7FF 100%
+    ) !important;
+    background-attachment: fixed !important;
+    background-size: 100% 100% !important;
+    animation: none !important;
+}
+
+/* Bright, readable text and headings */
+body {
+    color: var(--fresh-text) !important;
+}
+
+.top-text,
+.small-text,
+.instruction {
+    color: #37899A !important;
+}
+
+.home h1,
+.gift-box h1 {
+    color: #F28C28 !important;
+    font-family: 'Pacifico', cursive !important;
+    text-shadow: 0 3px 12px #F5B66A66 !important;
+}
+
+.note-box h2,
+.video-box h2,
+.cake-box h2 {
+    color: #19AFC0 !important;
+}
+
+.birthday-title {
+    color: #19AFC0 !important;
+    text-shadow: 0 3px 14px #19AFC055 !important;
+}
+
+.compliment {
+    color: #F05298 !important;
+}
+
+.status {
+    color: #16B89F !important;
+}
+
+/* Bright gradient buttons */
+.main-btn {
+    background: #F58EAF !important;
+    color: #FFFFFF !important;
+    border: 2px solid #FFD1DF !important;
+    border-radius: 50px !important;
+
+    box-shadow: 0 6px 18px #F58EAF55 !important;
+}
+
+.main-btn:hover {
+    background: #E879A0 !important;
+}
+
+.small-btn {
+    color: #FFFFFF !important;
+    background: linear-gradient(
+        110deg,
+        #FF75AD,
+        #FFAD55
+    ) !important;
+    border: 1px solid #FF9CBF !important;
+    box-shadow: 0 6px 16px #FF75AD44 !important;
+}
+
+.small-btn:hover {
+    background: linear-gradient(
+        110deg,
+        #FFAD55,
+        #FF75AD
+    ) !important;
+}
+
+/* Bright cards and borders */
+.note-box,
+.video-box,
+.cake-box,
+.gift-box {
+    background: #FFFFFFF2 !important;
+    border: 2px solid #FFE34D !important;
+    box-shadow:
+        0 14px 38px #24DCC82B,
+        0 5px 18px #FF75AD20 !important;
+}
+
+.video-box video {
+    background: #B9EDFF !important;
+    box-shadow: 0 7px 22px #65CFFF40 !important;
+}
+
+/* Candle colours */
+.stick {
+    background: repeating-linear-gradient(
+        45deg,
+        #FFE34D,
+        #FFE34D 5px,
+        #24DCC8 5px,
+        #24DCC8 10px
+    ) !important;
+}
+
+/* Cake celebration glow */
+.party-mode {
+    box-shadow:
+        0 0 25px #FFE34D99,
+        0 0 45px #24DCC877,
+        0 0 60px #FF75AD55 !important;
+}
+
+/* Decorative arrows */
+.arrow {
+    color: #FF75AD !important;
+    text-shadow: 0 0 14px #FFE34D88 !important;
+}
+
+/* Keep sticker cutouts and their existing positions unchanged */
+.sticker {
+    object-fit: contain !important;
+}
+
+/* Keep the final gift-page sticker sizing unchanged */
+.final-party-cat {
+    object-fit: contain !important;
+}
+
+/* Keep form/control readability while using the brighter palette */
+button:focus-visible {
+    outline: 3px solid #FFAD55 !important;
+    outline-offset: 4px;
+}
+/* MOBILE CAT STICKER FIX */
+@media (max-width: 430px) {
+
+    .birthday-stickers .sticker {
+        width: 64px !important;
+        height: auto !important;
+        max-height: 78px !important;
+        object-fit: contain !important;
+    }
+
+    /* First cat */
+    .birthday-cat-one {
+        left: 0 !important;
+        top: 110px !important;
+    }
+
+    /* Second cat */
+    .birthday-cat-two {
+        right: 0 !important;
+        top: 370px !important;
+    }
+
+    /* Third cat */
+    .birthday-cat-three {
+        left: 0 !important;
+        top: 680px !important;
+    }
+
+    /* Fourth cat */
+    .birthday-cat-four {
+        right: 0 !important;
+        top: 1000px !important;
+    }
+
+    .birthday-stickers {
+        z-index: 2 !important;
+    }
+
+    .birthday .note-box,
+    .birthday .video-box,
+    .birthday .cake-box {
+        position: relative !important;
+        z-index: 1 !important;
+    }
+}
