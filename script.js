@@ -9,7 +9,7 @@ $('forYouButton').addEventListener('click', openBirthday);
 
 $('complimentButton').addEventListener('click', showCompliment);
 
-$('blowButton').addEventListener('click', blowCandles);
+document.getElementById('blowButton')?.addEventListener('click', blowCandles);
 
 $('giftButton').addEventListener('click', openGift);
 
@@ -51,15 +51,16 @@ function blowCandles() {
 
     $('blowButton').disabled = true;
 
-    $('blowButton').textContent = 'Candles are out! 🎂';
+    $('blowButton').textContent = 'CANDLES BLOWN! 🎂';
+
 
     $('micStatus').textContent =
         'Your wish has been sent to the universe! ✨';
 
 
-    // Turn off candles one by one
+    // Extinguish candles one by one
 
-    const candles = document.querySelectorAll('.candle');
+    const candles = document.querySelectorAll('.castle-tower .candle');
 
     candles.forEach((candle, index) => {
 
@@ -72,12 +73,12 @@ function blowCandles() {
     });
 
 
-    // Cake animation
+    // Cake celebration animation
 
     $('cakeBox').classList.add('party-mode');
 
 
-    // Screen flash
+    // Screen flash effect
 
     const flash = document.createElement('div');
 
@@ -94,7 +95,7 @@ function blowCandles() {
     setTimeout(() => flash.remove(), 1000);
 
 
-    // Launch party effects
+    // Launch celebration effects
 
     launchConfetti(100);
 
@@ -116,6 +117,32 @@ function blowCandles() {
         $('micStatus').textContent =
             'The candles are out! Let the party begin! 🥳';
 
+
+        // Scroll to celebration message
+
+        requestAnimationFrame(() => {
+
+            requestAnimationFrame(() => {
+
+                const celebration = $('celebration');
+
+                const targetTop =
+                    celebration.getBoundingClientRect().top
+                    + window.pageYOffset - 28;
+
+                window.scrollTo({
+
+                    top: Math.max(0, targetTop),
+
+                    behavior: 'smooth'
+
+                });
+
+            });
+
+        });
+
+
         launchConfetti(70);
 
         launchFireworks();
@@ -125,6 +152,8 @@ function blowCandles() {
     }, 1250);
 
 }
+
+
 
 
 // BIRTHDAY SOUND EFFECT
@@ -139,6 +168,7 @@ function playBirthdaySound() {
         const context = new AudioContextClass();
 
         const notes = [
+
             523,
             659,
             784,
@@ -146,6 +176,7 @@ function playBirthdaySound() {
             784,
             1047,
             1318
+
         ];
 
         notes.forEach((frequency, index) => {
@@ -188,7 +219,9 @@ function playBirthdaySound() {
 
         setTimeout(() => context.close(), 2500);
 
-    } catch (error) {
+    }
+
+    catch (error) {
 
         console.log('Birthday sound unavailable');
 
@@ -197,18 +230,19 @@ function playBirthdaySound() {
 }
 
 
+
 // CONFETTI EFFECT
 
 function launchConfetti(count = 100) {
 
     const colors = [
 
-        '#ff9fbd',
-        '#c3a8f2',
-        '#ffd77d',
-        '#a9dfcf',
-        '#f5b5d0',
-        '#9bdcff',
+        '#ff75ae',
+        '#ffe14d',
+        '#00b9d1',
+        '#45d6ad',
+        '#ffab52',
+        '#9a8cff',
         '#ffffff'
 
     ];
@@ -245,22 +279,20 @@ function launchConfetti(count = 100) {
 }
 
 
+
 // COLOURED HEARTS
-// Light blue, yellow and purple only
 
 function launchColouredHearts() {
 
     const hearts = [
 
-        { symbol: '♥', color: '#8ed9ff' },
+        { symbol: '♥', color: '#00b9d1' },
 
-        { symbol: '♥', color: '#ffd96e' },
+        { symbol: '♥', color: '#ffe14d' },
 
-        { symbol: '♥', color: '#bda0ff' }
+        { symbol: '♥', color: '#ff75ae' }
 
     ];
-
-    // Only a few hearts, not too many
 
     for (let i = 0; i < 9; i++) {
 
@@ -292,7 +324,8 @@ function launchColouredHearts() {
 }
 
 
-// OTHER PARTY EMOJIS
+
+// PARTY EMOJIS
 
 function launchPartyEmojis() {
 
@@ -339,27 +372,37 @@ function launchPartyEmojis() {
 }
 
 
+
 // FIREWORKS
 
 function launchFireworks() {
 
     const colors = [
 
-        '#8ed9ff',
-        '#ffd96e',
-        '#bda0ff',
-        '#ff9fbd',
-        '#a9dfcf'
+        '#00b9d1',
+        '#ffe14d',
+        '#9a8cff',
+        '#ff75ae',
+        '#45d6ad'
 
     ];
 
     const centers = [
 
-        { x: 20 + Math.random() * 15, y: 20 + Math.random() * 20 },
+        {
+            x: 20 + Math.random() * 15,
+            y: 20 + Math.random() * 20
+        },
 
-        { x: 65 + Math.random() * 15, y: 18 + Math.random() * 20 },
+        {
+            x: 65 + Math.random() * 15,
+            y: 18 + Math.random() * 20
+        },
 
-        { x: 40 + Math.random() * 20, y: 12 + Math.random() * 18 }
+        {
+            x: 40 + Math.random() * 20,
+            y: 12 + Math.random() * 18
+        }
 
     ];
 
@@ -405,6 +448,7 @@ function launchFireworks() {
 }
 
 
+
 // OPEN GIFT PAGE
 
 function openGift() {
@@ -414,8 +458,11 @@ function openGift() {
     $('giftPage').classList.remove('hidden');
 
     window.scrollTo({
+
         top: 0,
+
         behavior: 'smooth'
+
     });
 
     launchConfetti(100);
@@ -423,6 +470,7 @@ function openGift() {
     launchPartyEmojis();
 
 }
+
 
 
 // BACK TO BIRTHDAY
@@ -434,8 +482,24 @@ function backToBirthday() {
     $('birthdayPage').classList.remove('hidden');
 
     window.scrollTo({
+
         top: 0,
+
         behavior: 'smooth'
+
     });
 
 }
+
+
+
+// FRIENDSHIP STICKER REVEAL
+
+document.querySelectorAll('.sticker').forEach((sticker, index) => {
+
+    sticker.style.setProperty(
+        '--sticker-delay',
+        `${index * 90}ms`
+    );
+
+});
