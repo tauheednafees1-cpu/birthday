@@ -1775,3 +1775,551 @@ button:focus-visible {
         z-index: 1 !important;
     }
 }
+
+/* =========================================================
+   NEW BIRTHDAY CAKE — LAYERED CAKE, GLOWING CANDLES & ACTIONS
+   ========================================================= */
+.cake-box {
+    overflow: hidden;
+}
+.cake-scene {
+    width: min(100%, 430px);
+    margin: 22px auto 26px;
+    padding: 12px 12px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.candles {
+    width: min(78%, 285px) !important;
+    height: 88px !important;
+    margin: 0 auto -3px !important;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    gap: clamp(15px, 5vw, 34px) !important;
+    position: relative;
+    z-index: 3;
+}
+.candle {
+    width: 17px !important;
+    height: 76px !important;
+    position: relative;
+    flex: 0 0 17px;
+}
+.candle .stick {
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 17px !important;
+    height: 58px !important;
+    border-radius: 5px 5px 3px 3px !important;
+    background: repeating-linear-gradient(135deg, #fff7d6 0 7px, #ff80ad 7px 14px) !important;
+    box-shadow: inset -3px 0 4px #c95f8a33, 0 3px 5px #7c456522;
+}
+.candle:nth-child(even) .stick {
+    background: repeating-linear-gradient(135deg, #e6fbff 0 7px, #49bfd1 7px 14px) !important;
+}
+.candle .flame {
+    width: 15px !important;
+    height: 23px !important;
+    top: -2px !important;
+    left: 1px !important;
+    border-radius: 55% 55% 48% 48% !important;
+    background: radial-gradient(ellipse at 50% 68%, #fffbd0 0 17%, #ffd34f 42%, #ff8b32 76%, #ff6b35 100%) !important;
+    box-shadow: 0 0 9px 3px #ffc64d99, 0 0 23px 8px #ff9c3c55 !important;
+    transform-origin: 50% 100%;
+    animation: flameDance .65s ease-in-out infinite alternate !important;
+}
+@keyframes flameDance {
+    from { transform: rotate(-7deg) scale(.94, 1); }
+    to { transform: rotate(7deg) scale(1.08, 1.12); }
+}
+.candle .smoke {
+    top: -26px !important;
+    left: -5px !important;
+    color: #aab5c2;
+    font-size: 23px !important;
+}
+.cake {
+    width: min(100%, 330px) !important;
+    height: 190px;
+    margin: 0 auto 10px !important;
+    position: relative;
+    display: block;
+    font-size: initial !important;
+    filter: drop-shadow(0 13px 12px #8c58752a) !important;
+    animation: cakeFloat 3.4s ease-in-out infinite;
+}
+.cake-plate {
+    position: absolute;
+    left: 2%;
+    bottom: 0;
+    width: 96%;
+    height: 17px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #fff 0%, #d8e9f4 100%);
+    box-shadow: 0 5px 8px #526d8022;
+}
+.cake-lower {
+    position: absolute;
+    left: 9%;
+    bottom: 13px;
+    width: 82%;
+    height: 76px;
+    border-radius: 13px 13px 17px 17px;
+    background: linear-gradient(90deg, #d86f91 0%, #f6a6b9 18%, #ffd0c4 50%, #f29ab0 82%, #c95e86 100%);
+    border: 1px solid #d87999;
+    box-shadow: inset 0 -10px 0 #c95e8530, inset 0 7px 0 #fff4e477;
+}
+.cake-upper {
+    position: absolute;
+    z-index: 1;
+    left: 13%;
+    bottom: 78px;
+    width: 74%;
+    height: 59px;
+    border-radius: 13px 13px 10px 10px;
+    background: linear-gradient(90deg, #f3c7a0, #ffe4bd 35%, #fff0d2 58%, #f5c69d);
+    border: 1px solid #e8bd9b;
+    box-shadow: inset 0 -7px 0 #d9977b25;
+}
+.cake-top {
+    position: absolute;
+    z-index: 2;
+    left: 11%;
+    bottom: 124px;
+    width: 78%;
+    height: 33px;
+    border-radius: 50% 50% 9px 9px / 75% 75% 9px 9px;
+    background: linear-gradient(180deg, #fff9e8, #ffe9d2);
+    border: 1px solid #f2d5b7;
+    box-shadow: 0 5px 0 #e8b3a1;
+}
+.cake-top::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -11px;
+    height: 18px;
+    background: radial-gradient(ellipse at 12px 0, #fff0dc 0 10px, transparent 10.5px) 0 0 / 42px 18px repeat-x;
+}
+.cake-sprinkle {
+    position: absolute;
+    z-index: 3;
+    width: 5px;
+    height: 10px;
+    border-radius: 5px;
+    transform: rotate(35deg);
+}
+.sprinkle-one { left: 18%; top: 10px; background: #ff79a9; }
+.sprinkle-two { left: 39%; top: 5px; background: #55c5d4; transform: rotate(-28deg); }
+.sprinkle-three { right: 28%; top: 12px; background: #f6b83f; }
+.sprinkle-four { right: 13%; top: 6px; background: #9b8be8; transform: rotate(-25deg); }
+.cake-berry {
+    position: absolute;
+    z-index: 3;
+    top: 4px;
+    color: #ed6f9b;
+    font-size: 14px;
+}
+.berry-one { left: 28%; }
+.berry-two { right: 35%; color: #58b8c7; }
+.cake-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 4px auto 8px;
+}
+.cake-actions button {
+    min-height: 44px;
+}
+.mic-button, .relight-button {
+    margin-top: 0 !important;
+    background: #e8f8fb !important;
+    border: 1px solid #a8dfe8 !important;
+    color: #17657c !important;
+}
+.relight-button {
+    background: #fff1d9 !important;
+    border-color: #f0d28b !important;
+    color: #8a5d20 !important;
+}
+.cake-box .status { min-height: 28px; }
+.candle.out .flame {
+    opacity: 0 !important;
+    transform: translateY(-18px) scale(.2) !important;
+    transition: .35s ease !important;
+}
+.cake-box .party-mode { animation: none; }
+@media (max-width: 600px) {
+    .cake-scene { padding-inline: 0; }
+    .cake { width: min(100%, 300px) !important; height: 176px; }
+    .cake-top { bottom: 116px; }
+    .cake-upper { bottom: 72px; }
+    .cake-lower { bottom: 12px; height: 70px; }
+    .cake-plate { height: 15px; }
+    .candles { width: 82% !important; height: 80px !important; }
+    .candle { height: 68px !important; }
+    .candle .stick { height: 51px !important; }
+    .cake-actions { flex-direction: column; }
+    .cake-actions button { width: min(100%, 290px); }
+}
+
+
+/* =========================================================
+   ELEGANT CASTLE CAKE — INSPIRED BY THE USER'S REFERENCE
+   ========================================================= */
+.cake-scene {
+    width: min(100%, 440px);
+    margin: 24px auto 28px;
+    padding: 8px 8px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.candles {
+    width: min(52%, 210px) !important;
+    height: 76px !important;
+    margin: 0 auto -1px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 13px !important;
+    position: relative;
+    z-index: 8;
+}
+.candle { width: 14px !important; height: 70px !important; flex: 0 0 14px; position: relative; }
+.candle .stick {
+    width: 14px !important; height: 48px !important; left: 0 !important; bottom: 0 !important;
+    border-radius: 4px 4px 3px 3px !important;
+    background: repeating-linear-gradient(135deg, #fff8e7 0 6px, #e9a0b7 6px 12px) !important;
+    box-shadow: inset -3px 0 4px #a85c7130, 0 2px 4px #6b3e2920;
+}
+.candle:nth-child(even) .stick { background: repeating-linear-gradient(135deg, #fff8e7 0 6px, #83c8cb 6px 12px) !important; }
+.candle .flame {
+    width: 13px !important; height: 20px !important; left: 1px !important; top: -2px !important;
+    border-radius: 55% 55% 48% 48% !important;
+    background: radial-gradient(ellipse at 50% 68%, #fffde0 0 16%, #ffd15a 43%, #ff923f 78%, #ef6745 100%) !important;
+    box-shadow: 0 0 9px 3px #ffc64d99, 0 0 21px 7px #ff9c3c55 !important;
+    transform-origin: 50% 100%; animation: flameDance .65s ease-in-out infinite alternate !important;
+}
+.castle-cake {
+    width: min(100%, 370px);
+    height: 286px;
+    position: relative;
+    margin: 0 auto;
+    filter: drop-shadow(0 13px 13px #80576b25);
+    animation: castleCakeFloat 4s ease-in-out infinite;
+}
+@keyframes castleCakeFloat { 50% { transform: translateY(-4px); } }
+.castle-plate {
+    position: absolute; left: 2%; bottom: 2px; width: 96%; height: 18px;
+    border-radius: 50%; background: linear-gradient(180deg,#fff 0%,#f4e9eb 55%,#c9aeb9 100%);
+    border: 1px solid #e4d1d8; box-shadow: 0 5px 8px #66475a24;
+}
+.castle-tier {
+    position: absolute; border: 1px solid #e8d7cd;
+    background: linear-gradient(90deg,#d8c4b9 0%,#fffaf1 15%,#fffdf7 52%,#f4e6dc 88%,#d8c3b8 100%);
+    box-shadow: inset 0 -9px 0 #d8b9ad35, inset 0 7px 0 #fff;
+}
+.tier-bottom { left: 9%; bottom: 17px; width: 82%; height: 91px; border-radius: 13px 13px 18px 18px; }
+.tier-middle { left: 20%; bottom: 103px; width: 60%; height: 77px; border-radius: 12px 12px 15px 15px; }
+.tier-top { left: 33%; bottom: 177px; width: 34%; height: 57px; border-radius: 11px 11px 13px 13px; }
+.tier-bottom::before,.tier-middle::before,.tier-top::before {
+    content:""; position:absolute; left:0; right:0; top:-7px; height:15px; border-radius:50%;
+    background:linear-gradient(180deg,#fffef9,#f7e9df); border:1px solid #ead9cf;
+}
+.castle-tower { position:absolute; z-index:5; width:48px; height:120px; }
+.tower-body {
+    position:absolute; left:7px; right:7px; top:34px; bottom:0;
+    background:linear-gradient(90deg,#d7c2b8,#fffdf7 28%,#fffaf1 72%,#d8c4b9);
+    border:1px solid #dfcbbf; border-radius:7px 7px 5px 5px;
+    box-shadow:inset 0 -5px 0 #d8b9ad30;
+}
+.tower-body::before {
+    content:""; position:absolute; left:7px; top:15px; width:8px; height:16px;
+    border:2px solid #d7b99b; border-radius:5px 5px 2px 2px;
+    box-shadow:14px 0 0 -2px #fffaf1, 14px 0 0 0 #d7b99b;
+}
+.tower-roof {
+    position:absolute; z-index:2; left:1px; top:0; width:46px; height:45px;
+    background:repeating-linear-gradient(135deg,#f6dce6 0 5px,#e9bfd0 5px 9px);
+    clip-path:polygon(50% 0,100% 100%,0 100%);
+    filter:drop-shadow(0 2px 2px #9c6c7c44);
+}
+.tower-roof::after {
+    content:""; position:absolute; left:21px; top:8px; width:4px; height:30px;
+    background:#fff2f4; opacity:.75;
+}
+.spire { position:absolute; z-index:3; left:22px; top:-12px; width:3px; height:18px; background:#c7a56e; }
+.spire::before { content:""; position:absolute; left:-3px; top:-4px; width:9px; height:9px; background:#d6b77e; transform:rotate(45deg); border-radius:1px; }
+.tower-left-small { left:1%; bottom:43px; transform:scale(.72); transform-origin:bottom center; }
+.tower-right-small { right:1%; bottom:43px; transform:scale(.72); transform-origin:bottom center; }
+.tower-left-mid { left:12%; bottom:119px; transform:scale(.88); transform-origin:bottom center; }
+.tower-right-mid { right:12%; bottom:119px; transform:scale(.88); transform-origin:bottom center; }
+.tower-center { left:calc(50% - 28px); bottom:203px; width:56px; height:100px; }
+.tower-center .tower-body { left:8px; right:8px; top:29px; }
+.tower-center .tower-roof { left:0; width:56px; height:38px; }
+.tower-center .spire { left:27px; }
+.flower-cluster { position:absolute; z-index:4; color:#d9829e; font-family:Georgia,serif; text-shadow:0 1px 1px #fff; letter-spacing:-3px; white-space:nowrap; }
+.cluster-a { left:8%; top:31px; font-size:25px; transform:rotate(-12deg); }
+.cluster-b { right:8%; top:44px; font-size:24px; transform:rotate(12deg); }
+.cluster-c { left:44%; top:62px; font-size:20px; color:#e6a7b7; }
+.cluster-d { left:8%; top:24px; font-size:22px; }
+.cluster-e { right:8%; top:37px; font-size:21px; color:#e7a8b7; }
+.cluster-f { left:37%; top:22px; font-size:19px; }
+.cake-actions { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:10px; margin:4px auto 8px; }
+.cake-actions button { min-height:44px; }
+.relight-button { margin-top:0 !important; background:#fff1d9 !important; border:1px solid #f0d28b !important; color:#8a5d20 !important; }
+.cake-box .status { min-height:28px; }
+.candle.out .flame { opacity:0 !important; transform:translateY(-18px) scale(.2) !important; transition:.35s ease !important; }
+@media (max-width:600px) {
+    .cake-scene { padding-inline:0; }
+    .castle-cake { width:min(100%,340px); height:260px; }
+    .tier-bottom { height:80px; bottom:16px; }
+    .tier-middle { height:68px; bottom:91px; }
+    .tier-top { height:49px; bottom:156px; }
+    .tower-left-small,.tower-right-small { bottom:36px; transform:scale(.62); }
+    .tower-left-mid,.tower-right-mid { bottom:105px; transform:scale(.75); }
+    .tower-center { bottom:177px; transform:scale(.82); transform-origin:bottom center; }
+    .candles { width:55% !important; height:68px !important; }
+    .candle { height:62px !important; }
+    .candle .stick { height:43px !important; }
+    .cake-actions { flex-direction:column; }
+    .cake-actions button { width:min(100%,290px); }
+}
+/* =====================================
+   FINAL CASTLE CAKE ADJUSTMENTS
+===================================== */
+
+/* Slightly reduce cake width */
+
+.castle-cake {
+    width: min(100%, 340px) !important;
+}
+
+
+/* Remove the old candle row */
+
+.candles {
+    display: none !important;
+}
+
+
+/* Candle positioning on castle towers */
+
+.castle-tower .candle {
+    position: absolute !important;
+    z-index: 12 !important;
+
+    width: 11px !important;
+    height: 35px !important;
+
+    left: 50% !important;
+    top: -37px !important;
+
+    transform: translateX(-50%) !important;
+}
+
+
+/* Candle body: matching ivory and blush pink */
+
+.castle-tower .candle .stick {
+    position: absolute !important;
+
+    width: 11px !important;
+    height: 29px !important;
+
+    bottom: 0 !important;
+    left: 0 !important;
+
+    border-radius: 4px 4px 2px 2px !important;
+
+    background: repeating-linear-gradient(
+        135deg,
+        #fff9ed 0px,
+        #fff9ed 5px,
+        #e9b6c5 5px,
+        #e9b6c5 9px
+    ) !important;
+
+    box-shadow: 0 2px 4px #9e718033;
+}
+
+
+/* Candle flame */
+
+.castle-tower .candle .flame {
+    position: absolute !important;
+
+    width: 10px !important;
+    height: 15px !important;
+
+    top: -13px !important;
+    left: 1px !important;
+
+    border-radius: 60% 60% 45% 45% !important;
+
+    background: radial-gradient(
+        ellipse at center,
+        #fff9d5 5%,
+        #ffd36c 50%,
+        #ff984c 100%
+    ) !important;
+
+    box-shadow:
+        0 0 8px #ffd36c,
+        0 0 17px #ffb45c99 !important;
+
+    animation: flameDance .7s infinite alternate;
+}
+
+
+/* Flame movement */
+
+@keyframes flameDance {
+
+    from {
+        transform: rotate(-7deg) scale(1);
+    }
+
+    to {
+        transform: rotate(7deg) scale(1.12);
+    }
+
+}
+
+
+/* Smoke */
+
+.castle-tower .candle .smoke {
+    top: -24px !important;
+    left: -5px !important;
+    z-index: 13;
+}
+
+
+/* Extinguish animation */
+
+.castle-tower .candle.out .flame {
+    opacity: 0 !important;
+    transform: translateY(-18px) scale(.2) !important;
+    transition: .35s ease !important;
+}
+
+
+/* Keep candles above the tower roofs */
+
+.castle-tower {
+    overflow: visible !important;
+}
+
+
+/* Mobile adjustment */
+
+@media (max-width: 600px) {
+
+    .castle-cake {
+        width: min(100%, 320px) !important;
+    }
+
+}
+
+/* =========================================================
+   FINAL CAKE TWEAKS — NARROWER CASTLE + TOWER CANDLES
+   ========================================================= */
+.cake-scene {
+    width: min(100%, 390px);
+    margin-left: auto;
+    margin-right: auto;
+    overflow: visible;
+}
+.castle-cake {
+    width: min(100%, 330px) !important;
+}
+@media (max-width: 600px) {
+    .castle-cake { width: min(100%, 305px) !important; }
+}
+
+/* The candles sit on the five tower rooftops; no separate candle row. */
+.candles { display: none !important; }
+.castle-tower { overflow: visible !important; }
+.castle-tower > .candle {
+    display: block !important;
+    position: absolute !important;
+    z-index: 20 !important;
+    width: 12px !important;
+    height: 35px !important;
+    left: 50% !important;
+    top: -37px !important;
+    bottom: auto !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+}
+.castle-tower > .candle .stick {
+    position: absolute !important;
+    display: block !important;
+    width: 12px !important;
+    height: 27px !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    border-radius: 4px 4px 2px 2px !important;
+    background: repeating-linear-gradient(
+        135deg,
+        #fffaf0 0 5px,
+        #e8b5c5 5px 9px
+    ) !important;
+    box-shadow: inset -2px 0 3px #b77e8c33, 0 2px 4px #8e657533 !important;
+}
+.castle-tower > .candle .flame {
+    position: absolute !important;
+    display: block !important;
+    width: 10px !important;
+    height: 15px !important;
+    left: 1px !important;
+    top: -12px !important;
+    border-radius: 55% 55% 48% 48% !important;
+    background: radial-gradient(ellipse at 50% 65%, #fffde1 0 15%, #ffd66f 48%, #ff994d 100%) !important;
+    box-shadow: 0 0 8px 2px #ffd36c99, 0 0 16px 5px #ffb45c55 !important;
+    transform-origin: 50% 100%;
+    animation: castleFlameFlicker .7s ease-in-out infinite alternate !important;
+}
+@keyframes castleFlameFlicker {
+    from { transform: rotate(-6deg) scale(1); }
+    to { transform: rotate(6deg) scale(1.1); }
+}
+.castle-tower > .candle .smoke {
+    position: absolute !important;
+    left: -5px !important;
+    top: -25px !important;
+    opacity: 0;
+    pointer-events: none;
+}
+.castle-tower > .candle.out .flame {
+    opacity: 0 !important;
+    transform: translateY(-16px) scale(.2) !important;
+    transition: opacity .25s ease, transform .35s ease !important;
+}
+.castle-tower > .candle.out .smoke {
+    opacity: .65;
+    animation: candleSmoke 1.2s ease-out forwards;
+}
+@keyframes candleSmoke {
+    from { opacity: .7; transform: translateY(0) scale(.7); }
+    to { opacity: 0; transform: translateY(-20px) scale(1.3); }
+}
+/* The candle replaces the old gold spire on each tower. */
+.castle-tower > .spire { display: none !important; }
+.cake-actions { justify-content: center; }
+
+.gift-page .gift-box h1 {
+    font-family: 'Pacifico', cursive !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+    font-size: clamp(1.6rem, 4.5vw, 2.6rem) !important;
+}
